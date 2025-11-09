@@ -30,8 +30,8 @@ namespace ProjetoEcommerce.Repositorio
                             Email = dr["Email"].ToString(),
                             Senha = dr["Senha"].ToString()
                         };
-                        return usuario;
                     }
+                    return usuario;
                 }
             }
         }
