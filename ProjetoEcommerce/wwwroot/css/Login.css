@@ -1,0 +1,17 @@
+﻿body {
+    background-image: url('../img/DogBG.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-container {
+    width: 650px;
+    margin-top: 10vh;
+    margin-right:800px;
+}
+
+.login-card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
