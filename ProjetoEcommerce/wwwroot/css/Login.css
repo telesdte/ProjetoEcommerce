@@ -6,9 +6,9 @@
 }
 
 .login-container {
-    width: 650px;
-    margin-top: 10vh;
-    margin-right:800px;
+    width: 500px;
+    height:500px;
+    margin-top: 20vh;
 }
 
 .login-card {

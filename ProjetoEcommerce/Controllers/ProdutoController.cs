@@ -37,7 +37,7 @@ namespace ProjetoEcommerce.Controllers
 
         // Action que recebe e processa os dados que serão enviados pelo formulário de cadastro de produtos (via Requisição POST)
         [HttpPost]
-        public IActionResult CadastrarCliente(Produto produto)
+        public IActionResult CadastrarProduto(Produto produto)
         {
 
             /* O parâmetro 'produto' recebe os dados enviados pelo formulário,

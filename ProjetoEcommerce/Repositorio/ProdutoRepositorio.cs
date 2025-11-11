@@ -7,7 +7,7 @@ namespace ProjetoEcommerce.Repositorio
 {
     public class ProdutoRepositorio(IConfiguration configuration)
     {
-        private readonly string _conexaoMySQL = configuration.GetConnectionString("ConexaoMySQL");
+        private readonly string _conexaoMySQL = configuration.GetConnectionString("conexaoMySQL");
 
         //Metodo para CADASTRAR
         public void Cadastrar(Produto produto)
@@ -15,7 +15,7 @@ namespace ProjetoEcommerce.Repositorio
             using (var conexao = new MySqlConnection(_conexaoMySQL))
             {
                 conexao.Open();
-                MySqlCommand cmd = new MySqlCommand("insert into Produtos (Nome, Descricao, Preco, Qtd) values (@nome, @desc, @preco, @qtd)", conexao);
+                MySqlCommand cmd = new MySqlCommand("insert into Produto (Nome, Descricao, Preco, Qtd) values (@nome, @desc, @preco, @qtd)", conexao);
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = produto.Nome;
                 cmd.Parameters.Add("@desc", MySqlDbType.Text).Value = produto.Descricao;
                 cmd.Parameters.Add("@preco", MySqlDbType.Decimal).Value = produto.Preco;

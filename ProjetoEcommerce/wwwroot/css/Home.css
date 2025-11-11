@@ -1,0 +1,36 @@
+﻿/* Wrapper dividindo a tela */
+.split-wrapper {
+    height: 100vh;
+    width: 99vw;
+}
+
+/* Imagem ocupando 50% */
+.split-left {
+    width: 65%;
+    background-image: url('../img/pexels-pragyanbezbo-27522260.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Parte branca com conteúdo */
+.split-right {
+    width: 35%;
+    display: flex;
+}
+
+/* Card mais estreito e centralizado no bloco branco */
+.content-box {
+    width: 59vh;
+    margin: auto;
+    background: #fff;
+    padding: 60px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.20); /*sombra interna do retangulo branco*/
+}
+
+.btn {
+    width:500px;
+}

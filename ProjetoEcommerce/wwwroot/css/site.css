@@ -18,5 +18,34 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+header nav {
+    background-image: linear-gradient(#020024, #090979, #00D4FF);
+}
+
+footer {
+    background-image: linear-gradient(#020024, #090979, #00D4FF);
+}
+
+.navbar .nav-link { /*Estilo da navbar e links*/
+    color: white !important;
+    font-size: 1.6rem;
+    font-weight: 500; /* Deixa mais encorpado */
+    padding-top: 0.9rem; /*Tamanho do header*/
+    padding-bottom: 0.8rem;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus {
+    color: #3bffc4 !important; /* hover */
+    background-image: linear-gradient(#020024,#090979,#00D4FF);
+    border-radius: 4px;
+}
+
+.navbar-brand { /*Título*/
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px; /* Espaçamento nas letras*/
 }

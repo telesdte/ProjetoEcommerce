@@ -1,0 +1,15 @@
+﻿.card-header {
+    border-radius: 8px 8px 0 0;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.btn-success:hover {
+    background-color: #1e9f54 !important;
+}
+
+body {
+    background: linear-gradient(to right, #ffffff, #f0f8ff);
+}

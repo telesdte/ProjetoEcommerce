@@ -16,5 +16,5 @@ Preco DECIMAL(7,2) NOT NULL,
 Qtd INT NOT NULL
 );
 
-SELECT * FROM Usuarios;
-SELECT * FROM Produtos;
+SELECT * FROM Usuario;
+SELECT * FROM Produto;

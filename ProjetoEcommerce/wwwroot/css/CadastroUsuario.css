@@ -1,0 +1,9 @@
+﻿.form-card {
+    background: #fff;
+    border-radius: 12px;
+}
+
+body {
+    background: linear-gradient(135deg, #6fb1fc, #4364f7, #3f51b5);
+    background-size: cover;
+}

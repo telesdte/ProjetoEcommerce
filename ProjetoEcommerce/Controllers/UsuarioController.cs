@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProjetoEcommerce.Models;
 using ProjetoEcommerce.Repositorio;
 
 namespace ProjetoEcommerce.Controllers
@@ -32,6 +33,11 @@ namespace ProjetoEcommerce.Controllers
         /* Define outra action chamada Login, mas desta vez ela responde a requisições HTTP POST ([HttpPost]).
         que recebe dois parâmetros do formulário enviado: email e senha (ambos do tipo string).*/
 
+        public IActionResult Menu()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Login(string email, string senha)
         {
@@ -43,8 +49,8 @@ namespace ProjetoEcommerce.Controllers
             if (usuario != null && usuario.Senha == senha)
             {
                 // Autenticação bem-sucedida
-                // Redireciona o usuário para a action "Index" do Controller "Produto".
-                return RedirectToAction("Index", "Produto");
+                // Redireciona o usuário para a action "Menu" do Controller "Usuario".
+                return RedirectToAction("Menu", "Usuario");
             }
             /* Se a autenticação falhar (usuário não encontrado ou senha incorreta):
              Adiciona um erro ao ModelState. ModelState armazena o estado do modelo e erros de validação.
@@ -54,6 +60,24 @@ namespace ProjetoEcommerce.Controllers
             ModelState.AddModelError("", "Email ou senha inválidos.");
             //retorna view Login 
             return View();
+        }
+
+        //CHAMA O METODO CADASTRAR USUARIO
+        public IActionResult CadastrarUsuario()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CadastrarUsuario(Usuario usuario)
+        {
+            if (ModelState.IsValid)
+            {
+                _usuarioRepositorio.Cadastrar(usuario);
+                return RedirectToAction("Login");
+            }
+
+            return View(usuario);
         }
     }
 }
