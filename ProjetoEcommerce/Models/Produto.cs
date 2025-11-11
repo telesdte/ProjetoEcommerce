@@ -9,7 +9,7 @@ namespace ProjetoEcommerce.Models
         public string? Nome { get; set; }
         public string? Descricao { get; set; }
         public decimal? Preco { get; set; }
-        public decimal? Qtd { get; set; }
+        public int Qtd { get; set; }
         public List<Produto>? Listaproduto { get; set; }
     }
 }

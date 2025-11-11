@@ -43,10 +43,10 @@ namespace ProjetoEcommerce.Controllers
             /* O parâmetro 'produto' recebe os dados enviados pelo formulário,
              que são automaticamente mapeados para as propriedades da classe Produto.
              Chama o método no repositório para cadastrar o novo produto no sistema.*/
-            _produtoRepositorio.Cadastrar(produto);
+            _produtoRepositorio.CadastrarProduto(produto);
 
-            //redireciona para pagina Index 'nameof(Index)' garante que o nome da Action seja usado corretamente,
-            return RedirectToAction(nameof(Index));
+            //redireciona para pagina Index 'Menu/Usuario' garante que o nome da Action seja usado corretamente,
+            return RedirectToAction("Menu", "Usuario");
         }
 
         /* Action para exibir o formulário de edição de um produto específico (via Requisição GET)

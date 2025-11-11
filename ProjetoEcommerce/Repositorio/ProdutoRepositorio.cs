@@ -10,7 +10,7 @@ namespace ProjetoEcommerce.Repositorio
         private readonly string _conexaoMySQL = configuration.GetConnectionString("conexaoMySQL");
 
         //Metodo para CADASTRAR
-        public void Cadastrar(Produto produto)
+        public void CadastrarProduto(Produto produto)
         {
             using (var conexao = new MySqlConnection(_conexaoMySQL))
             {
@@ -109,7 +109,7 @@ namespace ProjetoEcommerce.Repositorio
                 // Lê os resultados linha por linha
                 while (dr.Read())
                 {
-                    // Preenche as propriedades do objeto Cliente com os valores da linha atual
+                    // Preenche as propriedades do objeto Produto com os valores da linha atual
                     produto.Id = Convert.ToInt32(dr["Id"]);
                     produto.Nome = (string)(dr["Nome"]);
                     produto.Descricao = (string)(dr["Descricao"]);
