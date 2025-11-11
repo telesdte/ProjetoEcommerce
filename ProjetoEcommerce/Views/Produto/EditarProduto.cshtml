@@ -1,0 +1,50 @@
+﻿@model ProjetoEcommerce.Models.Produto
+
+@{
+    ViewData["Title"] = "Editar Produto";
+}
+
+<link href="~/css/editarproduto.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+
+            <div class="card shadow-lg border-0">
+                <div class="card-header text-center text-white bg-primary">
+                    <h3>Editar Produto</h3>
+                </div>
+
+                <div class="card-body">
+                    <form asp-controller="Produto" asp-action="EditarProduto" method="post">
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Nome</label>
+                            <input asp-for="Nome" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Descrição</label>
+                            <textarea asp-for="Descricao" class="form-control" rows="3" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Preço (R$)</label>
+                            <input asp-for="Preco" class="form-control" step="0.01" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Quantidade em Estoque</label>
+                            <input asp-for="Qtd" class="form-control" required />
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100 py-2 fw-bold">Salvar Alterações</button>
+                        <a asp-controller="Produto" asp-action="Index" class="btn btn-secondary w-100 mt-2">Voltar</a>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

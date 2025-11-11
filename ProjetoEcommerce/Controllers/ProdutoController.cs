@@ -20,7 +20,7 @@ namespace ProjetoEcommerce.Controllers
             _produtoRepositorio = produtoRepositorio;
         }
 
-        public IActionResult Index()
+        public IActionResult ListarProdutos()
         {
             /* Retorna a View padrão associada a esta Action,
              passando como modelo a lista de todos os produtos obtida do repositório.*/
@@ -112,7 +112,7 @@ namespace ProjetoEcommerce.Controllers
             // Obtém o produto específico do repositório usando o Codigo fornecido.
             _produtoRepositorio.Excluir(id);
             // Retorna a View de confirmação de exclusão, passando o produto como modelo.
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("ListarProdutos", "Produto");
         }
     }
 }

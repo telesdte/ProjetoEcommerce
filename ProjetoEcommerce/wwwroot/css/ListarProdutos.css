@@ -1,0 +1,67 @@
+﻿/* Container centralizado */
+.container-tabela {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Título da página */
+.titulo-pagina {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo da tabela */
+.tabela-produtos {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+    .tabela-produtos th, .tabela-produtos td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .tabela-produtos th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    /* Zebra effect para linhas */
+    .tabela-produtos tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+/* Botões */
+.btn-editar, .btn-excluir {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.btn-editar {
+    background-color: #2196F3;
+}
+
+.btn-excluir {
+    background-color: #f44336;
+}
+
+/* Hover effects */
+.btn-editar:hover {
+    background-color: #0b7dda;
+}
+
+.btn-excluir:hover {
+    background-color: #da190b;
+}

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ProjetoEcommerce.Models.Produto>
+
+@{
+    ViewData["Title"] = "Lista de Produtos";
+}
+
+<link href="~/css/ListarProdutos.css" rel="stylesheet" />
+
+<h2 class="titulo-pagina">Produtos Cadastrados</h2>
+
+<div class="container-tabela">
+    <table class="tabela-produtos">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Preço (R$)</th>
+                <th>Quantidade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var produto in Model)
+            {
+                <tr>
+                    <td>@produto.Id</td>
+                    <td>@produto.Nome</td>
+                    <td>@produto.Descricao</td>
+                    <td>@string.Format("{0:N2}", produto.Preco)</td>
+                    <td>@produto.Qtd</td>
+                    <td>
+                        <a class="btn-editar" href="@Url.Action("EditarProduto", "Produto", new { id = produto.Id })">Editar</a>
+                        <a class="btn-excluir" href="@Url.Action("ExcluirProduto", "Produto", new { id = produto.Id })"
+                           onclick="return confirm('Tem certeza que deseja excluir este produto?');">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
