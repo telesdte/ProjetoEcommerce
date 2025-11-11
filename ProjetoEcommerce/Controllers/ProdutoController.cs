@@ -75,34 +75,28 @@ namespace ProjetoEcommerce.Controllers
         /*[Bind] para especificar explicitamente quais propriedades do objeto Produto podem ser vinculadas a partir dos dados do formulário.
         Isso é uma boa prática de segurança para evitar o overposting (onde um usuário malicioso pode enviar dados para propriedades
         que você não pretendia que fossem alteradas)*/
-        public IActionResult EditarProduto(int id, [Bind("Id, Nome, Descricao, Preco, Qtd")] Produto produto)
+        public IActionResult EditarProduto([Bind("Id, Nome, Descricao, Preco, Qtd")] Produto produto)
         {
-            // Verifica se o ID fornecido na rota corresponde ao ID do produto no modelo.
-            if (id != produto.Id)
+            if (!ModelState.IsValid)
+                return View(produto);
+
+            try
             {
-                return BadRequest(); // Retorna um erro 400 se os IDs não corresponderem.
-            }
-            if (ModelState.IsValid)
-            {
-                //try /catch = tratamento de erros 
-                try
+                if (_produtoRepositorio.Atualizar(produto))
                 {
-                    // Verifica se o produto com o Codigo fornecido existe no repositório.
-                    if (_produtoRepositorio.Atualizar(produto))
-                    {
-                        //redireciona para a pagina index quando alterar
-                        return RedirectToAction(nameof(Index));
-                    }
+                    TempData["MensagemSucesso"] = "Produto atualizado com sucesso!";
+                    return RedirectToAction("ListarProdutos");
                 }
-                catch (Exception)
+                else
                 {
-                    // Adiciona um erro ao ModelState para exibir na View.
-                    ModelState.AddModelError("", "Ocorreu um erro ao Editar.");
-                    // Retorna a View com o modelo para exibir a mensagem de erro e os dados do formulário.
-                    return View(produto);
+                    TempData["MensagemErro"] = "Erro ao atualizar o produto!";
                 }
             }
-            // Se o ModelState não for válido, retorna a View com os erros de validação.
+            catch (Exception)
+            {
+                TempData["MensagemErro"] = "Ocorreu um erro ao atualizar.";
+            }
+
             return View(produto);
         }
 

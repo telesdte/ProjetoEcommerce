@@ -17,6 +17,7 @@
 
                 <div class="card-body">
                     <form asp-controller="Produto" asp-action="EditarProduto" method="post">
+                        @Html.AntiForgeryToken() @* Essencial para segurança contra ataques CSRF (TAMBÉM ESTÁ NO METODO DA CONTROLLER)  *@
                         <input type="hidden" asp-for="Id" />
 
                         <div class="mb-3">
@@ -39,8 +40,11 @@
                             <input asp-for="Qtd" class="form-control" required />
                         </div>
 
-                        <button type="submit" class="btn btn-success w-100 py-2 fw-bold">Salvar Alterações</button>
-                        <a asp-controller="Produto" asp-action="Index" class="btn btn-secondary w-100 mt-2">Voltar</a>
+                        <button type="submit" class="btn btn-success w-100 py-2 fw-bold"
+                                onclick="return confirm('Tem certeza que deseja Editar este produto?');">
+                            Salvar Alterações
+                        </button>
+                        <a asp-controller="Produto" asp-action="ListarProdutos" class="btn btn-secondary w-100 mt-2">Voltar</a>
                     </form>
                 </div>
 

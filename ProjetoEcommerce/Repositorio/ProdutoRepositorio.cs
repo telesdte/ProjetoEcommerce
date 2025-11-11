@@ -36,8 +36,8 @@ namespace ProjetoEcommerce.Repositorio
                     MySqlCommand cmd = new MySqlCommand("Update Produto set Nome=@nome, Descricao=@desc, Preco=@preco, Qtd=@qtd " + " where Id=@id ", conexao);
                     cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = produto.Id;
                     cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = produto.Nome;
-                    cmd.Parameters.Add("@des", MySqlDbType.VarChar).Value = produto.Descricao;
-                    cmd.Parameters.Add("@preco", MySqlDbType.VarChar).Value = produto.Preco;
+                    cmd.Parameters.Add("@desc", MySqlDbType.VarChar).Value = produto.Descricao;
+                    cmd.Parameters.Add("@preco", MySqlDbType.Decimal).Value = produto.Preco;
                     cmd.Parameters.Add("@qtd", MySqlDbType.Int32).Value = produto.Qtd;
                     int linhasAfetadas = cmd.ExecuteNonQuery();
                     return linhasAfetadas > 0; // Retorna true se ao menos uma linha foi atualizada
