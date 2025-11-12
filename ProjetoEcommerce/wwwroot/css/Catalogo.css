@@ -1,31 +1,22 @@
-﻿.bg-video {
+﻿/* ======== CORREÇÃO DO VÍDEO DE FUNDO ======== */
+.bg-video {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
     object-fit: cover;
-    z-index: -1;
+    z-index: -2; /* fica atrás de tudo */
     filter: brightness(60%);
 }
 
+/* O container principal precisa ter z-index acima do vídeo */
 .catalog-container {
     position: relative;
     z-index: 1;
 }
 
-.titulo {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-.subtitulo {
-    margin-top: 30px;
-    font-weight: bold;
-}
-
+/* --- Base do layout --- */
 .produtos-container {
     display: flex;
     gap: 20px;
@@ -34,30 +25,64 @@
     flex-wrap: wrap;
 }
 
+/* Card: usa overflow hidden para garantir que a imagem não "vaze" */
 .card-produto {
     width: 250px;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
-    padding: 15px;
+    padding: 0;                 /* removi padding para o topo ficar com a imagem */
     text-align: center;
     transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;           /* essencial para cortar a imagem */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-.card-produto img {
+/* Wrapper da imagem para controlar bordas separadamente */
+.card-produto .img-wrap {
     width: 100%;
-    border-radius: 10px;
+    height: 200px;              /* altura fixa: ajuste conforme preferir */
+    overflow: hidden;
+    flex: 0 0 auto;
 }
 
+/* Imagem: display block remove gaps inline; object-fit para cortar proporcionalmente */
+.card-produto .img-wrap img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* manter como cover para aspecto igual */
+    object-position: center;    /* centraliza o “crop” */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Conteúdo textual separado */
+.card-produto .content {
+    padding: 15px;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Hover */
 .card-produto:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
 
+/* Preço */
 .preco {
     font-weight: bold;
     color: #007bff;
-    font-size: 1.2rem;
-    display: block;
+    font-size: 1.1rem;
     margin-top: 8px;
 }
+
+/* Debug helpers — remova depois (apenas para testar se a regra está sendo aplicada) */
+.card-produto.debug { outline: 2px dashed magenta; }
+.card-produto .img-wrap.debug { outline: 2px dashed lime; }
