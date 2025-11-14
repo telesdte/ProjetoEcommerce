@@ -1,4 +1,11 @@
-﻿/* Container centralizado */
+﻿body {
+    background-image: url('../img/cachorroolhando.jpg');
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+/* Container centralizado */
 .container-tabela {
     max-width: 900px;
     margin: 30px auto;

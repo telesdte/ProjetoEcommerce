@@ -3,7 +3,13 @@
     border-radius: 12px;
 }
 
-body {
-    background: linear-gradient(135deg, #6fb1fc, #4364f7, #3f51b5);
-    background-size: cover;
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -2; /* fica atrás de tudo */
+    filter: brightness(60%);
 }
